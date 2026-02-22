@@ -1,15 +1,15 @@
 # Minimal Resume – Express & Handlebars
 
-A minimal resume web application built with **Express.js** and **Handlebars** as the view engine.
+A minimal resume web application built with **Express.js** and **Handlebars** as the view engine, styled with **Tailwind CSS** (CDN).
 
 ## Handlebars Features Demonstrated
 
 | Feature            | Where Used                                                                    |
 | ------------------ | ----------------------------------------------------------------------------- |
-| **Render Context** | Resume data object passed from `app.js` to `resume.handlebars`                |
+| **Render Context** | Resume data object passed from `resumeData.js` to `resume.handlebars`         |
 | **Layouts**        | `views/layouts/main.handlebars` — wraps every page                            |
 | **Partials**       | `header`, `section`, `experience-item`, `education-item`                      |
-| **`{{#if}}`**      | Conditionally renders summary, skills, GPA, honors, etc.                      |
+| **`{{#if}}`**      | Conditionally renders summary, skills, GPA, honors, website, etc.             |
 | **`{{#unless}}`**  | Shows "Present" when `endDate` is `null`; shows fallback for empty references |
 | **`{{#each}}`**    | Iterates over skills, experience, education, certifications, languages        |
 | **Custom Helpers** | `capitalize`, `currentYear`, `eq`, `join`, `inc`                              |
@@ -17,20 +17,18 @@ A minimal resume web application built with **Express.js** and **Handlebars** as
 ## Project Structure
 
 ```
-├── app.js                          # Express server + resume data + helpers
+├── app.js                              # Express server + Handlebars setup + helpers
+├── resumeData.js                       # Resume data (render context)
 ├── package.json
-├── public/
-│   └── css/
-│       └── style.css               # Stylesheet
 ├── views/
 │   ├── layouts/
-│   │   └── main.handlebars         # Main layout (HTML skeleton)
+│   │   └── main.handlebars             # Main layout (HTML skeleton + Tailwind CDN)
 │   ├── partials/
-│   │   ├── header.handlebars       # Contact info partial
-│   │   ├── section.handlebars      # Reusable section heading partial
+│   │   ├── header.handlebars           # Contact info partial
+│   │   ├── section.handlebars          # Reusable section heading partial
 │   │   ├── experience-item.handlebars  # Single job entry partial
 │   │   └── education-item.handlebars   # Single education entry partial
-│   └── resume.handlebars           # Main resume view
+│   └── resume.handlebars               # Main resume view
 └── .gitignore
 ```
 
@@ -54,3 +52,5 @@ Then open [http://localhost:3000](http://localhost:3000) in your browser.
 - **Node.js**
 - **Express.js**
 - **express-handlebars**
+- **Tailwind CSS** (CDN)
+- **nodemon** (dev dependency)
