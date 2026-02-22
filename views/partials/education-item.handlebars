@@ -1,0 +1,29 @@
+<div class="mb-4">
+  <div class="flex flex-wrap justify-between items-start">
+    <div>
+      <h3 class="text-base font-semibold text-gray-900">{{this.degree}}</h3>
+      <p class="text-sm text-gray-500">{{this.school}}
+        &mdash;
+        {{this.location}}</p>
+    </div>
+    <div class="text-sm text-gray-400">{{this.year}}</div>
+  </div>
+
+  {{#if this.gpa}}
+    <p class="text-sm text-gray-600 mt-1"><strong>GPA:</strong> {{this.gpa}}</p>
+  {{/if}}
+
+  {{#if this.honors}}
+    <span
+      class="inline-block mt-1 bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-0.5 rounded"
+    >&#127942; Honors Graduate</span>
+  {{/if}}
+
+  {{#if this.achievements}}
+    <ul class="mt-2 pl-5 list-disc text-sm text-gray-600 space-y-0.5">
+      {{#each this.achievements}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>

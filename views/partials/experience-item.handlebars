@@ -1,0 +1,30 @@
+<div class="mb-5">
+  <div class="flex flex-wrap justify-between items-start">
+    <div>
+      <h3 class="text-base font-semibold text-gray-900">{{this.role}}</h3>
+      <p class="text-sm text-gray-500">{{this.company}}
+        &mdash;
+        {{this.location}}</p>
+    </div>
+    <div class="text-sm text-gray-400 whitespace-nowrap">
+      {{this.startDate}}
+      &ndash;
+      {{#unless this.endDate}}
+        <span
+          class="bg-green-500 text-white text-xs font-semibold px-2 py-0.5 rounded"
+        >Present</span>
+      {{/unless}}
+      {{#if this.endDate}}
+        {{this.endDate}}
+      {{/if}}
+    </div>
+  </div>
+
+  {{#if this.highlights}}
+    <ul class="mt-2 pl-5 list-disc text-sm text-gray-600 space-y-0.5">
+      {{#each this.highlights}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>

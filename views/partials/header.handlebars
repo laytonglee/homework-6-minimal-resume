@@ -1,0 +1,38 @@
+<header class="text-center mb-6">
+  <h1 class="text-4xl font-bold text-gray-900">{{name}}</h1>
+  {{#if title}}
+    <p class="text-lg text-blue-600 mt-4">{{title}}</p>
+  {{/if}}
+
+  <div
+    class="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-4 text-sm text-gray-500"
+  >
+    {{#if email}}
+      <span>&#9993; {{email}}</span>
+    {{/if}}
+    {{#if phone}}
+      <span>&#9742; {{phone}}</span>
+    {{/if}}
+    {{#if location}}
+      <span>&#9873; {{location}}</span>
+    {{/if}}
+    {{#if linkedin}}
+      <span>&#128279; {{linkedin}}</span>
+    {{/if}}
+    {{#if github}}
+      <span>&#128187; {{github}}</span>
+    {{/if}}
+
+    {{#unless website}}
+      <span class="italic text-gray-400">&#127760; No personal website listed</span>
+    {{/unless}}
+    {{#if website}}
+      <span>&#127760;
+        <a
+          href="{{website}}"
+          target="_blank"
+          class="text-blue-500 hover:underline"
+        >{{website}}</a></span>
+    {{/if}}
+  </div>
+</header>

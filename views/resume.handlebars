@@ -1,0 +1,88 @@
+{{> header}}
+
+{{> section title="Professional Summary"}}
+{{#if summary}}
+  <div class="mb-2">
+    <p class="text-sm text-gray-600 leading-relaxed text-justify">{{summary}}</p>
+  </div>
+{{/if}}
+
+{{> section title="Skills"}}
+<div class="mb-2 space-y-3">
+  {{#each skills}}
+    <div>
+      <h3 class="text-sm font-semibold text-gray-700 mb-1">{{this.category}}</h3>
+      <div class="flex flex-wrap gap-1.5">
+        {{#each this.items}}
+          <span class="inline-block bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-0.5 rounded-full">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+{{> section title="Work Experience"}}
+<div class="mb-2">
+  {{#each experience}}
+    {{> experience-item}}
+  {{/each}}
+</div>
+
+{{> section title="Education"}}
+<div class="mb-2">
+  {{#each education}}
+    {{> education-item}}
+  {{/each}}
+</div>
+
+{{> section title="Certifications"}}
+<div class="mb-2">
+  <ol class="list-decimal pl-5 text-sm text-gray-600 space-y-1">
+    {{#each certifications}}
+      <li>
+        <strong>{{this.name}}</strong>
+        <span class="text-gray-400 text-xs">({{this.year}})</span>
+      </li>
+    {{/each}}
+  </ol>
+</div>
+
+{{> section title="Languages"}}
+<div class="mb-2">
+  <div class="flex flex-wrap gap-3">
+    {{#each languages}}
+      <div class="bg-gray-50 border border-gray-200 rounded-md px-4 py-2 text-center min-w-[120px]">
+        <span class="block font-semibold text-sm text-gray-700">{{this.name}}</span>
+        <span class="text-xs text-gray-400">{{this.proficiency}}</span>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{#if interests.length}}
+  {{> section title="Interests"}}
+  <div class="mb-2">
+    <p class="text-sm text-gray-500">
+      {{join interests ", "}}
+    </p>
+  </div>
+{{/if}}
+
+{{> section title="References"}}
+<div class="mb-2">
+  {{#unless references.length}}
+    <p class="text-gray-400 italic text-sm">Available upon request.</p>
+  {{/unless}}
+  {{#if references.length}}
+    <div class="grid sm:grid-cols-2 gap-4">
+      {{#each references}}
+        <div class="bg-gray-50 border border-gray-200 rounded-md p-4">
+          <p class="font-semibold text-sm text-gray-800">{{this.name}}</p>
+          <p class="text-xs text-gray-500">{{this.title}}</p>
+          <p class="text-xs text-gray-500">{{this.institution}}</p>
+          <p class="text-xs text-blue-500 mt-1">&#9993; {{this.email}}</p>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
